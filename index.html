@@ -1,0 +1,1098 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarkand, Perle de la Route de la Soie </title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      template: {
+                          sable: '#FFEDD5', 
+                          ocre: '#F97316',   // Orange Vibrant (Brand Accent)
+                          roche: '#0F172A',  // Bleu Nuit (Brand Dark)
+                          ciel: '#0D9488',   // Vert Lagon (Brand Primary)
+                          bg: '#FFF7ED'      // C'est un blanc cassé chaud, parfait pour la lecture et le contraste.
+                      }
+                  },
+                  fontFamily: {
+                      sans: ['"Plus Jakarta Sans"', 'sans-serif'], // Nouvelle police corps
+                      serif: ['"Outfit"', 'sans-serif'],           // Nouvelle police titres
+                  }
+              }
+          }
+      }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* 2. FORÇAGE DES GRAISSES (Comme sur la Landing Page) */
+        .font-sans { font-weight: 600 !important; }
+        .font-serif { font-weight: 800 !important; }
+
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #F97316; /* ocre */
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+    
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">MyTrip<span class="text-template-ocre">Planner</span></a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée en terre de légendes</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Le cœur battant de Samarkand</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Trésors célestes et mausolées sacrés</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Savoir ancestral et vestiges antiques</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Artisanat et traditions locales</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Spiritualité et éducation islamique</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Saveurs ouzbèkes et détente</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Préparation pour Boukhara</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 Boukhara, la Noble</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Trésors cachés de Boukhara</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Sources sacrées et palais d'été</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Quartier juif et artisanat</a>
+            
+                <a href="#jour-13" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J13 Nécropoles et spiritualité soufie</a>
+            
+                <a href="#jour-14" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J14 Retour vers Samarkand</a>
+            
+                <a href="#jour-15" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J15 Vins et tapis de Samarkand</a>
+            
+                <a href="#jour-16" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J16 Art et spiritualité locale</a>
+            
+                <a href="#jour-17" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J17 Excursion à Shakhrisabz</a>
+            
+                <a href="#jour-18" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J18 Samarkand hors des sentiers battus</a>
+            
+                <a href="#jour-19" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J19 Capitale moderne, Tachkent</a>
+            
+                <a href="#jour-20" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J20 Tachkent, entre tradition et modernité</a>
+            
+                <a href="#jour-21" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J21 Art souterrain et arts appliqués</a>
+            
+                <a href="#jour-22" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J22 Évasion montagnarde ou lacustre</a>
+            
+                <a href="#jour-23" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J23 Retour à Samarkand</a>
+            
+                <a href="#jour-24" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J24 Derniers achats et saveurs</a>
+            
+                <a href="#jour-25" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J25 Revisiter les coups de cœur</a>
+            
+                <a href="#jour-26" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J26 Derniers instants et dîner d'adieu</a>
+            
+                <a href="#jour-27" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J27 Départ de Samarkand</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/header.png" || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021'}');">
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.2em] mb-4 uppercase text-xs font-bold">Feuille de Route</p>
+            <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">SAMARKAND</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">Samarkand, Perle de la Route de la Soie</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🗓️ Du 20 Janvier au 16 Février 2026</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">💰 3560 €</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🛬 9h avec escale depuis Paris, France</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-16 relative">
+      <div class="text-center mb-16">
+            <h2 class="text-template-ocre font-bold tracking-normal text-4xl mt-2 uppercase font-serif">Votre Roadtrip</h2>
+      </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée en terre de légendes</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un voyage qui vous transporte à travers les continents, vous atterrissez à Samarkand, la ville mythique. Prenez le temps de vous installer et de ressentir l'atmosphère unique de cette ancienne cité de la Route de la Soie. Une première immersion douce pour débuter votre aventure.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛬 <strong>Arrivée à Samarkand</strong>: Atterrissage à l'aéroport international de Samarkand (SKD) et transfert vers votre hôtel pour vous rafraîchir et vous détendre après le vol.</li><li>🛏️ <strong>Installation à l'hôtel</strong>: Enregistrement dans votre hôtel 3 étoiles, un havre de paix pour les 26 prochaines nuits, offrant confort et commodité.</li><li>🚶‍♂️ <strong>Première balade au Registan (extérieur)</strong>: Une promenade légère en fin de journée pour admirer la majesté du Registan illuminé, une première rencontre inoubliable avec l'architecture timouride.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ À savoir</p>
+                                <p class="text-gray-700">Le décalage horaire avec Paris est de +4 heures en hiver. Prévoyez de vous hydrater et de vous reposer pour vous adapter en douceur.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚕 Transport local</p>
+                                <p class="text-gray-700">Utilisez l'application Yandex Go pour commander des taxis à des prix justes et éviter les négociations.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Le cœur battant de Samarkand</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur de Samarkand en explorant la place du Registan, un chef-d'œuvre architectural qui vous laissera sans voix. Laissez-vous ensuite emporter par l'effervescence du bazar de Siyob, où les saveurs et les couleurs locales éveilleront vos sens. Une journée riche en découvertes et en émotions.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Exploration de la place du Registan</strong>: Visitez les trois madrasahs emblématiques – Ulugbek, Sher-Dor et Tilla-Kari – et admirez leurs mosaïques complexes et leurs dômes turquoise, témoins de la grandeur timouride.</li><li>🛍️ <strong>Découverte du bazar de Siyob</strong>: Flânez dans ce marché coloré et animé, situé juste à côté de la mosquée Bibi-Khanym, pour y trouver épices, fruits secs, pains traditionnels et artisanat local.</li><li>🕌 <strong>Visite de la mosquée Bibi-Khanym</strong>: Admirez les vestiges imposants de cette immense mosquée, construite par Tamerlan pour son épouse, et imaginez sa splendeur passée.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Conseil photo</p>
+                                <p class="text-gray-700">Le Registan est particulièrement photogénique au lever et au coucher du soleil, lorsque la lumière met en valeur ses détails architecturaux.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🥖 Gastronomie</p>
+                                <p class="text-gray-700">Goûtez le "non" (pain ouzbek) frais du bazar, souvent cuit dans des fours tandoor traditionnels.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Trésors célestes et mausolées sacrés</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, vous explorerez des sites d'une beauté et d'une spiritualité profondes. Le complexe de Shah-i-Zinda, avec ses mausolées scintillants, offre un voyage dans le temps et l'art islamique. Le mausolée de Gour Emir, dernière demeure de Tamerlan, vous plongera dans l'histoire fascinante de l'empire timouride. Une journée entre recueillement et admiration.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✨ <strong>Visite du complexe de Shah-i-Zinda</strong>: Parcourez cette "Allée des Mausolées Vivants", un ensemble architectural unique où chaque tombe est un chef-d'œuvre de céramique et de majolique bleue.</li><li>👑 <strong>Exploration du mausolée de Gour Emir</strong>: Découvrez le somptueux mausolée de Tamerlan et de ses descendants, dont le dôme cannelé et l'intérieur richement décoré sont des symboles de l'art timouride.</li><li>🚶‍♀️ <strong>Promenade dans les ruelles historiques</strong>: Perdez-vous dans les petites rues autour du Registan pour découvrir l'architecture locale et l'ambiance quotidienne de Samarkand.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤫 Anecdote</p>
+                                <p class="text-gray-700">La légende raconte que la construction de Shah-i-Zinda a commencé au XIe siècle et s'est poursuivie pendant des siècles, chaque souverain ajoutant sa touche.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Astuce</p>
+                                <p class="text-gray-700">Portez des chaussures confortables, car la marche est le meilleur moyen d'explorer ces sites historiques.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Savoir ancestral et vestiges antiques</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous transportera entre la science et l'histoire. L'observatoire d'Ulugbek témoigne de l'âge d'or de l'astronomie islamique, tandis que le musée d'Afrosiab révèle les origines pré-mongoles de Samarkand. Enfin, le tombeau de Saint Daniel offre une perspective unique sur la coexistence des religions. Une exploration intellectuelle et spirituelle.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🔭 <strong>Visite de l'observatoire d'Ulugbek</strong>: Découvrez les vestiges de l'un des plus grands observatoires médiévaux, construit par le petit-fils de Tamerlan, Ulugbek, un astronome et mathématicien éclairé.</li><li>🏺 <strong>Exploration du musée d'Afrosiab</strong>: Plongez dans l'histoire ancienne de Samarkand en visitant ce musée construit sur les ruines de l'ancienne ville, abritant des fresques uniques et des artefacts sassanides.</li><li>🙏 <strong>Recueillement au tombeau de Saint Daniel</strong>: Visitez ce lieu de pèlerinage vénéré par les musulmans, les chrétiens et les juifs, abritant un sarcophage de 18 mètres de long, symbole de paix interconfessionnelle.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📜 Histoire</p>
+                                <p class="text-gray-700">Ulugbek a calculé la durée de l'année avec une précision étonnante, à seulement 58 secondes de la valeur actuelle.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶 Accès</p>
+                                <p class="text-gray-700">Le tombeau de Saint Daniel est accessible après une courte marche le long d'une colline, offrant de belles vues sur la rivière Siab.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Artisanat et traditions locales</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Éloignez-vous un instant des grands monuments pour découvrir l'âme artisanale de Samarkand. Le village de Konigil vous révélera les secrets de la fabrication du papier de soie, une tradition ancestrale. L'après-midi sera dédiée à l'exploration des ateliers d'artisans locaux, où vous pourrez admirer le savoir-faire ouzbek. Une journée immersive dans la culture vivante.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>📄 <strong>Visite de la fabrique de papier de soie de Konigil</strong>: Observez le processus traditionnel de fabrication du papier à partir de l'écorce de mûrier, une technique ramenée de Chine il y a des siècles.</li><li>🎨 <strong>Découverte des ateliers d'artisans</strong>: Rencontrez des maîtres artisans spécialisés dans la céramique, la broderie suzani ou la sculpture sur bois, et admirez leur travail minutieux.</li><li>☕ <strong>Pause dans une chaikhana locale</strong>: Profitez d'une pause relaxante dans une maison de thé traditionnelle, dégustant du thé vert et observant la vie locale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenirs</p>
+                                <p class="text-gray-700">Le papier de soie de Samarkand est un excellent souvenir, souvent utilisé pour des œuvres d'art ou des carnets.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗣️ Interaction</p>
+                                <p class="text-gray-700">N'hésitez pas à engager la conversation avec les artisans, ils sont souvent ravis de partager leur passion.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Spiritualité et éducation islamique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous mènera aux portes de la spiritualité et de l'érudition islamique. Le complexe commémoratif de l'Imam Bukhari, figure majeure de l'islam, est un lieu de pèlerinage important. L'après-midi sera consacrée à la découverte de madrasahs moins connues, offrant une perspective plus intime sur l'enseignement religieux et l'architecture locale. Une journée de réflexion et de découverte.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Visite du complexe commémoratif de l'Imam Bukhari</strong>: Rendez-vous à ce site sacré dédié à l'un des plus grands compilateurs de hadiths, un lieu de pèlerinage et de recueillement important pour les musulmans.</li><li>📚 <strong>Exploration de la madrasah de Khoja Akhrar Vali</strong>: Découvrez cette madrasah historique, moins fréquentée que celles du Registan, mais tout aussi riche en histoire et en architecture.</li><li>🚶‍♂️ <strong>Promenade dans les quartiers résidentiels</strong>: Observez la vie quotidienne des habitants de Samarkand en vous promenant dans les rues calmes, loin de l'agitation touristique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🙏 Respect</p>
+                                <p class="text-gray-700">Lors de la visite des sites religieux, il est conseillé de porter des vêtements modestes couvrant les épaules et les genoux.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚌 Accès</p>
+                                <p class="text-gray-700">Le complexe de l'Imam Bukhari est situé à environ 25 km de Samarkand, accessible en taxi ou en bus local.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Saveurs ouzbèkes et détente</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, mettez la main à la pâte et plongez dans la richesse de la cuisine ouzbèke. Un cours de cuisine vous permettra de maîtriser les secrets du plov ou d'autres délices locaux. L'après-midi sera dédiée à la détente et à l'exploration libre, vous offrant l'opportunité de revisiter un lieu coup de cœur ou de simplement vous imprégner de l'ambiance. Une journée gourmande et relaxante.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>👨‍🍳 <strong>Cours de cuisine ouzbèke</strong>: Apprenez à préparer le célèbre plov ou d'autres plats traditionnels comme les samsas ou le laghman, puis dégustez vos créations.</li><li>🛍️ <strong>Shopping de souvenirs au bazar</strong>: Profitez de l'après-midi pour acheter des souvenirs supplémentaires, comme des céramiques, des textiles ou des miniatures persanes.</li><li>☕ <strong>Détente dans un café local</strong>: Savourez un thé ou un café dans l'un des nombreux cafés de la ville, observant le rythme paisible de Samarkand.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Cuisine</p>
+                                <p class="text-gray-700">Le plov est le plat national de l'Ouzbékistan, chaque région ayant sa propre variante. C'est un incontournable!</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💰 Négociation</p>
+                                <p class="text-gray-700">Dans les bazars, la négociation est une pratique courante et fait partie de l'expérience d'achat.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Préparation pour Boukhara</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d'une matinée libre pour vos dernières découvertes à Samarkand avant de prendre le train pour Boukhara. Cette transition vous mènera vers une autre perle de la Route de la Soie, une ville dont l'histoire et l'architecture sont tout aussi fascinantes. Le voyage en train est une expérience en soi, offrant des paysages changeants. Une journée de transition et d'anticipation.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Matinée libre à Samarkand</strong>: Utilisez ce temps pour revisiter un site que vous avez particulièrement apprécié ou pour explorer un quartier que vous n'avez pas encore eu le temps de voir.</li><li>🚂 <strong>Voyage en train rapide Afrosiyob vers Boukhara</strong>: Embarquez à bord du train à grande vitesse pour un trajet confortable et pittoresque de Samarkand à Boukhara, d'une durée d'environ 1h30 à 2h.</li><li>🛏️ <strong>Installation à l'hôtel à Boukhara</strong>: Arrivée à Boukhara, transfert à votre hôtel et installation pour les prochains jours, prêts à découvrir cette nouvelle ville.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎟️ Billets de train</p>
+                                <p class="text-gray-700">Il est fortement recommandé de réserver vos billets de train Afrosiyob à l'avance, surtout en haute saison, car ils se vendent rapidement.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎒 Bagages</p>
+                                <p class="text-gray-700">Les trains sont confortables, mais prévoyez des bagages faciles à manipuler pour les gares.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Boukhara, la Noble</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Bienvenue à Boukhara, une ville dont le centre historique est classé au patrimoine mondial de l'UNESCO. Plongez directement dans l'ambiance en explorant le complexe Poi Kalyan, un ensemble architectural grandiose. L'après-midi sera dédiée à la découverte du Lyab-i Hauz, le cœur vibrant de la vieille ville. Une journée d'émerveillement et de découverte.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Exploration du complexe Poi Kalyan</strong>: Admirez le minaret Kalyan, la mosquée Kalyan et la madrasah Mir-i-Arab, des joyaux de l'architecture islamique qui dominent la ville.</li><li>⛲ <strong>Détente au Lyab-i Hauz</strong>: Profitez de l'atmosphère paisible de cette place centrale, entourée de madrasahs et de la statue de Hodja Nasreddin, un lieu idéal pour observer la vie locale.</li><li>🚶‍♀️ <strong>Promenade dans les coupoles marchandes</strong>: Flânez dans les anciens bazars couverts (Toki Sarrafon, Toki Telpak Furushon, Toki Zargaron) où l'artisanat et les épices sont encore vendus aujourd'hui.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour9.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶 Accessibilité</p>
+                                <p class="text-gray-700">Le centre historique de Boukhara est très compact et se visite facilement à pied, permettant une immersion totale.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Le minaret Kalyan était autrefois appelé la "Tour de la Mort" car les criminels y étaient jetés du haut.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Trésors cachés de Boukhara</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, Boukhara vous révélera d'autres de ses trésors. Le mausolée des Samanides, un chef-d'œuvre de l'architecture en brique, témoigne d'une époque révolue. La madrasah Chor Minor, avec ses quatre minarets distinctifs, offre une image emblématique. Enfin, la forteresse de l'Ark vous plongera dans l'histoire des émirs. Une journée entre art, histoire et légendes.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🧱 <strong>Visite du mausolée des Samanides</strong>: Admirez ce monument du Xe siècle, considéré comme l'un des plus beaux exemples d'architecture islamique en Asie centrale, avec ses motifs de briques complexes.</li><li>🕌 <strong>Découverte de la madrasah Chor Minor</strong>: Explorez cette petite madrasah unique avec ses quatre minarets bleus, un joyau architectural souvent représenté sur les cartes postales de Boukhara.</li><li>🏰 <strong>Exploration de la forteresse de l'Ark</strong>: Pénétrez dans cette ancienne résidence des émirs de Boukhara, une ville dans la ville, abritant des mosquées, des palais et des musées.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour10.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Lumière</p>
+                                <p class="text-gray-700">Le mausolée des Samanides est particulièrement beau sous la lumière du matin ou du soir, qui met en valeur ses motifs en brique.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👑 Histoire</p>
+                                <p class="text-gray-700">La forteresse de l'Ark a été le siège du pouvoir à Boukhara pendant des siècles, jusqu'à la révolution russe.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sources sacrées et palais d'été</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous mènera à la découverte de sites emblématiques de Boukhara, alliant spiritualité et histoire. Le mausolée de Chashma-Ayub, avec sa source sacrée, est un lieu de légende. La mosquée Bolo Hauz, avec son iwan orné, est un exemple magnifique de l'art local. L'après-midi sera consacrée à la découverte du palais d'été de Sitorai Mohi-Khosa, un écrin de verdure. Une journée entre fraîcheur et splendeur.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>💧 <strong>Visite du mausolée de Chashma-Ayub</strong>: Découvrez ce mausolée abritant une source d'eau sacrée, réputée pour ses vertus curatives, et son architecture unique.</li><li>🕌 <strong>Exploration de la mosquée Bolo Hauz</strong>: Admirez cette mosquée du XVIIIe siècle, connue pour son magnifique iwan en bois sculpté et ses colonnes élégantes, face à un bassin d'eau.</li><li>👑 <strong>Excursion au palais d'été Sitorai Mohi-Khosa</strong>: Visitez cette ancienne résidence d'été des émirs de Boukhara, un mélange fascinant d'architecture orientale et européenne, entourée de jardins paisibles.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour11.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌿 Jardins</p>
+                                <p class="text-gray-700">Les jardins du palais Sitorai Mohi-Khosa sont un endroit agréable pour se promener et échapper à l'agitation de la ville.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💧 Légende</p>
+                                <p class="text-gray-700">La source de Chashma-Ayub est censée avoir été créée par le prophète Job (Ayub) lui-même.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Quartier juif et artisanat</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, Boukhara vous dévoile une facette moins connue de son histoire avec la découverte de son ancien quartier juif, témoin d'une riche coexistence culturelle. L'après-midi sera consacrée à l'exploration des ateliers d'artisans, où vous pourrez admirer le savoir-faire local et peut-être trouver des trésors uniques. Une journée entre histoire et création.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✡️ <strong>Visite du quartier juif et de la synagogue</strong>: Explorez les ruelles étroites de l'ancien quartier juif de Boukhara et visitez la synagogue, témoin de la longue histoire de la communauté juive de la ville.</li><li>🎨 <strong>Rencontre avec les artisans locaux</strong>: Découvrez les ateliers de broderie, de céramique ou de fabrication de marionnettes, et observez les artisans à l'œuvre, perpétuant des traditions ancestrales.</li><li>☕ <strong>Dégustation de thé dans une chaikhana</strong>: Profitez d'une pause relaxante dans une chaikhana traditionnelle, savourant le thé vert ou noir, et imprégnez-vous de l'ambiance locale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour12.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤝 Culture</p>
+                                <p class="text-gray-700">La communauté juive de Boukhara est l'une des plus anciennes d'Asie centrale, avec une histoire de plus de 2000 ans.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎭 Artisanat</p>
+                                <p class="text-gray-700">Les marionnettes de Boukhara sont des objets d'art uniques, souvent utilisées pour des spectacles traditionnels.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-13" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 13</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nécropoles et spiritualité soufie</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous mènera aux portes de la spiritualité soufie et de l'histoire funéraire. La nécropole de Chor Bakr, avec ses mausolées et ses cours intérieures, est un lieu de recueillement paisible. Le complexe de Bakhauddin Naqshbandi, centre du soufisme, offre une immersion dans la mystique islamique. Une journée de sérénité et de découverte spirituelle.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕊️ <strong>Visite de la nécropole de Chor Bakr</strong>: Explorez ce complexe funéraire unique, surnommé la "ville des morts", avec ses mausolées, ses mosquées et ses jardins, un lieu de pèlerinage important.</li><li>🙏 <strong>Découverte du complexe de Bakhauddin Naqshbandi</strong>: Visitez ce site sacré dédié au fondateur de l'ordre soufi Naqshbandi, un lieu de pèlerinage majeur pour les musulmans d'Asie centrale.</li><li>🚶‍♀️ <strong>Promenade dans les environs</strong>: Profitez de la tranquillité des lieux pour une promenade méditative, observant les paysages désertiques environnants.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour13.jpg" class="w-full h-64 object-cover" alt="Jour 13">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚗 Transport</p>
+                                <p class="text-gray-700">Ces sites sont situés à l'extérieur de Boukhara, nécessitant un court trajet en taxi ou en voiture.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📚 Soufisme</p>
+                                <p class="text-gray-700">Le soufisme est une dimension mystique de l'islam, et Boukhara est un centre historique important de cette tradition.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-14" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 14</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Retour vers Samarkand</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d'une dernière matinée à Boukhara pour flâner dans ses ruelles, revisiter un site coup de cœur ou simplement vous imprégner de son atmosphère unique. L'après-midi sera consacrée au retour en train vers Samarkand, vous offrant l'occasion de réfléchir aux merveilles découvertes. Une journée de transition, marquant la fin de votre exploration de Boukhara.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♂️ <strong>Matinée libre à Boukhara</strong>: Profitez de ces dernières heures pour faire du shopping de dernière minute, prendre un café ou simplement vous promener dans la vieille ville.</li><li>🚂 <strong>Voyage en train rapide Afrosiyob vers Samarkand</strong>: Reprenez le train à grande vitesse pour retourner à Samarkand, un trajet confortable pour vous reposer.</li><li>🛏️ <strong>Installation à l'hôtel à Samarkand et soirée libre</strong>: Arrivée à Samarkand, retour à votre hôtel et soirée libre pour vous détendre ou dîner dans un restaurant local.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour14.jpg" class="w-full h-64 object-cover" alt="Jour 14">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Dîner</p>
+                                <p class="text-gray-700">À Samarkand, essayez un restaurant proposant des plats traditionnels avec des spectacles de musique et de danse.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Astuce</p>
+                                <p class="text-gray-700">Les trains Afrosiyob sont équipés de prises électriques, pratiques pour recharger vos appareils.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-15" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 15</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Vins et tapis de Samarkand</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après le retour de Boukhara, cette journée vous offre une perspective différente sur Samarkand, en explorant ses traditions moins connues. La visite d'une fabrique de vin vous surprendra par la richesse de la viticulture locale. L'après-midi sera dédiée à l'art du tapis, un savoir-faire ancestral. Une journée entre saveurs et textures, révélant d'autres facettes de la culture ouzbèke.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🍷 <strong>Visite de la fabrique de vin de Samarkand (Khovrenko Winery)</strong>: Découvrez l'histoire de la viticulture en Ouzbékistan et dégustez quelques-uns des vins locaux, souvent surprenants par leur qualité.</li><li>🧶 <strong>Atelier de tissage de tapis</strong>: Observez les artisans à l'œuvre dans un atelier de tapis, apprenant les techniques complexes de cette tradition séculaire et la signification des motifs.</li><li>🚶‍♀️ <strong>Balade au parc central</strong>: Profitez d'une promenade relaxante dans le parc central de Samarkand, un espace vert agréable pour se détendre.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour15.jpg" class="w-full h-64 object-cover" alt="Jour 15">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍇 Viticulture</p>
+                                <p class="text-gray-700">L'Ouzbékistan a une longue histoire viticole, influencée par les traditions perses et soviétiques.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🖼️ Art</p>
+                                <p class="text-gray-700">Les tapis ouzbeks sont réputés pour leurs motifs géométriques et leurs couleurs vives, souvent faits à la main.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-16" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 16</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Art et spiritualité locale</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous invite à une immersion plus profonde dans l'art et la spiritualité de Samarkand, en explorant des lieux moins fréquentés mais tout aussi significatifs. La visite de la mosquée Hazrati Khizr, avec sa vue panoramique, offre un moment de contemplation. L'après-midi sera consacrée à la découverte de galeries d'art ou d'ateliers de céramique, révélant la créativité contemporaine. Une journée entre tradition et modernité.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Visite de la mosquée Hazrati Khizr</strong>: Découvrez cette mosquée historique, reconstruite au XIXe siècle, offrant une vue imprenable sur le Registan et la ville de Samarkand.</li><li>🖼️ <strong>Exploration de galeries d'art locales</strong>: Visitez des galeries présentant des œuvres d'artistes ouzbeks contemporains, offrant un aperçu de la scène artistique actuelle.</li><li>🏺 <strong>Atelier de céramique ou de poterie</strong>: Participez à un petit atelier pour essayer de créer votre propre pièce de céramique, sous la guidance d'un artisan local.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour16.jpg" class="w-full h-64 object-cover" alt="Jour 16">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌅 Vue</p>
+                                <p class="text-gray-700">La mosquée Hazrati Khizr est un excellent endroit pour admirer le lever ou le coucher du soleil sur Samarkand.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Cadeau</p>
+                                <p class="text-gray-700">Les céramiques de Samarkand, souvent bleues et blanches, sont des souvenirs magnifiques et authentiques.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-17" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 17</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Excursion à Shakhrisabz</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, une excursion vous mènera à Shakhrisabz, la ville natale de Tamerlan, classée au patrimoine mondial de l'UNESCO. Vous y découvrirez les vestiges impressionnants de son palais blanc, Ak-Sarai, et d'autres monuments liés à sa vie. Ce voyage dans le passé vous offrira une perspective unique sur l'histoire de l'empire timouride. Une journée riche en histoire et en paysages.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚗 <strong>Voyage vers Shakhrisabz</strong>: Départ matinal en voiture ou en taxi partagé pour Shakhrisabz, un trajet d'environ 1h30 à 2h à travers des paysages montagneux.</li><li>🏰 <strong>Visite du palais Ak-Sarai</strong>: Admirez les vestiges monumentaux de l'ancien palais de Tamerlan, dont les portails imposants témoignent de sa grandeur passée.</li><li>🕌 <strong>Exploration du complexe Dorut Tilovat et Dorus Saodat</strong>: Découvrez ces complexes funéraires et religieux, abritant les tombes de la famille de Tamerlan et d'autres figures importantes.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour17.jpg" class="w-full h-64 object-cover" alt="Jour 17">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⛰️ Paysage</p>
+                                <p class="text-gray-700">La route vers Shakhrisabz traverse de belles montagnes, offrant des vues panoramiques, surtout en hiver avec la neige.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👑 Tamerlan</p>
+                                <p class="text-gray-700">Shakhrisabz était la ville natale de Tamerlan, bien qu'il ait choisi Samarkand comme capitale de son empire.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-18" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 18</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Samarkand hors des sentiers battus</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous invite à explorer Samarkand d'une manière différente, en vous éloignant des sites les plus connus pour découvrir des trésors cachés et des aspects de la vie quotidienne. Une promenade dans les quartiers résidentiels vous permettra de ressentir l'âme de la ville. L'après-midi sera dédiée à la découverte de petites mosquées ou de monuments moins fréquentés. Une journée d'exploration intime et authentique.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏡 <strong>Promenade dans les quartiers résidentiels</strong>: Flânez dans les rues moins touristiques pour observer l'architecture locale, les cours intérieures et la vie quotidienne des habitants.</li><li>🕌 <strong>Visite de la mosquée Rukhobod</strong>: Découvrez cette petite mosquée historique, souvent négligée, mais qui offre un aperçu de l'architecture religieuse locale.</li><li>☕ <strong>Dégustation de spécialités locales</strong>: Essayez des pâtisseries ou des snacks locaux dans une petite échoppe, pour une expérience culinaire authentique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour18.jpg" class="w-full h-64 object-cover" alt="Jour 18">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗣️ Langue</p>
+                                <p class="text-gray-700">Quelques mots d'ouzbek ou de russe peuvent être utiles pour interagir avec les habitants locaux.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗺️ Exploration</p>
+                                <p class="text-gray-700">N'hésitez pas à vous perdre un peu dans les ruelles, c'est souvent là que l'on fait les plus belles découvertes.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-19" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 19</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Capitale moderne, Tachkent</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, vous quittez l'atmosphère historique de Samarkand pour la modernité de Tachkent, la capitale ouzbèke. Le voyage en train rapide vous mènera vers une ville aux larges avenues et à l'architecture soviétique. L'après-midi sera consacrée à une première immersion dans le centre-ville, autour de la place Amir Timur. Une journée de contraste et de découverte urbaine.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚂 <strong>Voyage en train rapide Afrosiyob vers Tachkent</strong>: Embarquez pour un trajet confortable de Samarkand à Tachkent, d'une durée d'environ 2h à 2h30.</li><li>🛏️ <strong>Installation à l'hôtel à Tachkent</strong>: Arrivée à Tachkent, transfert à votre hôtel et installation pour les prochains jours.</li><li>🚶‍♂️ <strong>Découverte de la place Amir Timur</strong>: Promenez-vous sur cette place centrale, dominée par la statue équestre de Tamerlan, et admirez les bâtiments modernes et historiques qui l'entourent.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour19.jpg" class="w-full h-64 object-cover" alt="Jour 19">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🏙️ Contraste</p>
+                                <p class="text-gray-700">Tachkent offre un contraste saisissant avec les villes historiques comme Samarkand et Boukhara, avec son architecture plus moderne.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Orientation</p>
+                                <p class="text-gray-700">La place Amir Timur est un bon point de repère pour explorer le centre-ville de Tachkent.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-20" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 20</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Tachkent, entre tradition et modernité</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée vous fera découvrir les deux visages de Tachkent. Le complexe Khast Imam vous plongera dans l'histoire religieuse de la ville, abritant des manuscrits anciens. Le bazar de Chorsu, avec son dôme bleu emblématique, est un festival de couleurs et de saveurs. Une journée entre spiritualité, commerce et immersion culturelle.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Visite du complexe Khast Imam</strong>: Explorez ce centre religieux majeur, abritant la madrasah Barak Khan, la mosquée Tilla Sheikh et le mausolée de Kaffal Shashi, ainsi que le Coran d'Othman, l'un des plus anciens au monde.</li><li>🛍️ <strong>Exploration du bazar de Chorsu</strong>: Plongez dans l'ambiance vibrante de ce marché traditionnel, sous son immense dôme bleu, où vous trouverez de tout, des épices aux vêtements en passant par la nourriture.</li><li>🚶‍♀️ <strong>Promenade dans la vieille ville</strong>: Flânez dans les ruelles autour du complexe Khast Imam pour découvrir l'architecture traditionnelle et l'atmosphère de l'ancienne Tachkent.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour20.jpg" class="w-full h-64 object-cover" alt="Jour 20">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📜 Manuscrit</p>
+                                <p class="text-gray-700">Le Coran d'Othman est un trésor inestimable, considéré comme le plus ancien Coran complet au monde.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Photo</p>
+                                <p class="text-gray-700">Le dôme du bazar de Chorsu est très photogénique, surtout de l'intérieur.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-21" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 21</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Art souterrain et arts appliqués</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, Tachkent vous révélera sa beauté souterraine et son riche patrimoine artistique. Le métro de Tachkent, avec ses stations magnifiquement décorées, est une véritable galerie d'art. L'après-midi sera consacrée au musée des Arts Appliqués, abritant des collections impressionnantes d'artisanat ouzbek. Une journée entre esthétique urbaine et trésors culturels.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚇 <strong>Exploration du métro de Tachkent</strong>: Découvrez les stations de métro uniques, chacune décorée de manière différente avec des mosaïques, des sculptures et des lustres, un véritable musée souterrain.</li><li>🖼️ <strong>Visite du musée des Arts Appliqués</strong>: Admirez les collections de céramiques, de textiles, de broderies suzani, de bijoux et d'instruments de musique traditionnels ouzbeks, dans un ancien palais.</li><li>🚶‍♂️ <strong>Balade sur la "Broadway Alley"</strong>: Promenez-vous sur cette allée animée, reliant la place Amir Timur à la place de l'Indépendance, bordée de cafés, de galeries et d'artistes de rue.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour21.jpg" class="w-full h-64 object-cover" alt="Jour 21">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Photographie</p>
+                                <p class="text-gray-700">La photographie est autorisée dans le métro de Tachkent depuis 2018, profitez-en pour immortaliser ces stations uniques.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🏛️ Architecture</p>
+                                <p class="text-gray-700">Le bâtiment du musée des Arts Appliqués lui-même est une œuvre d'art, avec ses boiseries et ses décorations.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-22" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 22</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Évasion montagnarde ou lacustre</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Pour cette journée, échappez à l'agitation urbaine de Tachkent pour une bouffée d'air frais. Une excursion dans les montagnes de Chimgan vous offrira des paysages hivernaux magnifiques et la possibilité de profiter de la neige. Alternativement, le lac Charvak, même en hiver, offre un cadre paisible. Une journée de nature et de sérénité, avant de retourner à Samarkand. (À adapter selon les conditions météo hivernales).</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🏔️ <strong>Excursion dans les montagnes de Chimgan</strong>: Profitez des paysages enneigés, des pistes de ski ou de luge si les conditions le permettent, ou simplement d'une promenade en montagne.</li><li>💧 <strong>Visite du lac Charvak</strong>: Admirez ce grand réservoir d'eau turquoise, entouré de montagnes, offrant un cadre paisible pour une promenade ou un pique-nique.</li><li>🚂 <strong>Retour à Tachkent et soirée libre</strong>: Retour à Tachkent en fin de journée, puis soirée libre pour dîner et vous reposer avant le retour à Samarkand.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour22.jpg" class="w-full h-64 object-cover" alt="Jour 22">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">❄️ Météo</p>
+                                <p class="text-gray-700">En janvier-février, les montagnes de Chimgan sont enneigées, prévoyez des vêtements chauds et adaptés aux activités hivernales.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚗 Transport</p>
+                                <p class="text-gray-700">L'excursion nécessite un taxi ou un véhicule privé pour la journée, comptez environ 1h30 de route depuis Tachkent.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-23" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 23</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Retour à Samarkand</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après avoir exploré la capitale moderne, il est temps de retourner à Samarkand, votre point de départ et d'arrivée. Profitez de ce voyage en train pour vous remémorer les découvertes faites à Tachkent et anticiper les derniers jours à Samarkand. L'après-midi sera consacrée à la détente et à la préparation des dernières explorations. Une journée de transition et de retour aux sources.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Matinée libre à Tachkent</strong>: Profitez de ces dernières heures pour visiter un musée manqué ou faire du shopping de dernière minute.</li><li>🚂 <strong>Voyage en train rapide Afrosiyob vers Samarkand</strong>: Reprenez le train à grande vitesse pour retourner à Samarkand, un trajet confortable pour vous reposer.</li><li>🛏️ <strong>Installation à l'hôtel à Samarkand et soirée libre</strong>: Arrivée à Samarkand, retour à votre hôtel et soirée libre pour vous détendre ou dîner dans un restaurant local.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour23.jpg" class="w-full h-64 object-cover" alt="Jour 23">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🛍️ Souvenirs</p>
+                                <p class="text-gray-700">Tachkent est un bon endroit pour acheter des souvenirs plus modernes ou des produits de marque ouzbeks.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Astuce</p>
+                                <p class="text-gray-700">Les trains Afrosiyob sont très ponctuels, assurez-vous d'arriver à la gare en avance.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-24" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 24</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Derniers achats et saveurs</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Pour ces derniers jours à Samarkand, l'accent est mis sur les souvenirs et les plaisirs culinaires. Profitez de la matinée pour faire vos derniers achats au bazar de Siyob, à la recherche de trésors à rapporter. L'après-midi sera dédiée à la dégustation de spécialités locales, pour savourer une dernière fois les saveurs de l'Ouzbékistan. Une journée gourmande et mémorable.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛍️ <strong>Derniers achats au bazar de Siyob</strong>: Flânez une dernière fois dans le bazar pour trouver les derniers souvenirs, épices ou fruits secs à emporter.</li><li>🍲 <strong>Dégustation de "somsa" et "laghman"</strong>: Goûtez ces plats traditionnels ouzbeks, les somsas (chaussons farcis) et le laghman (nouilles faites maison), dans un restaurant local.</li><li>☕ <strong>Soirée dans une chaikhana</strong>: Profitez d'une dernière soirée relaxante dans une chaikhana, dégustant du thé et observant l'ambiance locale.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour24.jpg" class="w-full h-64 object-cover" alt="Jour 24">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌶️ Épices</p>
+                                <p class="text-gray-700">Le bazar de Siyob propose une grande variété d'épices locales, parfaites pour ramener un peu de saveur ouzbèke chez vous.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💰 Monnaie</p>
+                                <p class="text-gray-700">Assurez-vous d'avoir suffisamment de monnaie locale (UZS) pour les petits achats au bazar.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-25" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 25</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Revisiter les coups de cœur</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Cette journée est dédiée à la revisite de vos sites préférés à Samarkand. Que ce soit la majesté du Registan, la sérénité de Shah-i-Zinda ou l'effervescence du bazar, prenez le temps de vous imprégner une dernière fois de leur beauté. L'après-midi sera libre pour une exploration personnelle ou simplement pour vous détendre et savourer les derniers moments. Une journée de souvenirs et d'adieux.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Revisite du Registan</strong>: Profitez d'une dernière visite de la place du Registan, peut-être sous une lumière différente, pour admirer ses détails et son ambiance.</li><li>✨ <strong>Revisite de Shah-i-Zinda</strong>: Retournez dans l'allée des mausolées pour un moment de recueillement et d'admiration de l'art céramique.</li><li>🚶‍♂️ <strong>Promenade libre et détente</strong>: L'après-midi est libre pour une dernière promenade, un café ou simplement pour vous reposer à l'hôtel.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour25.jpg" class="w-full h-64 object-cover" alt="Jour 25">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Dernières photos</p>
+                                <p class="text-gray-700">Profitez de cette journée pour prendre les photos que vous n'avez pas eu le temps de faire ou pour capturer de nouveaux angles.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Réflexion</p>
+                                <p class="text-gray-700">Prenez un moment pour réfléchir à toutes les merveilles que vous avez découvertes durant ce voyage.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-26" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 26</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Derniers instants et dîner d'adieu</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Votre dernière journée complète à Samarkand est l'occasion de profiter des derniers instants de cette ville fascinante. Une matinée libre vous permettra de faire les dernières emplettes ou de vous imprégner une ultime fois de l'ambiance. Le soir, un dîner d'adieu dans un restaurant traditionnel sera l'occasion de célébrer ce voyage inoubliable. Une journée douce, pleine de souvenirs et d'émotions.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚶‍♀️ <strong>Matinée libre pour les dernières découvertes</strong>: Utilisez ce temps pour une dernière promenade, un café ou pour acheter les derniers souvenirs.</li><li>🎁 <strong>Visite d'une boutique d'artisanat</strong>: Découvrez des boutiques spécialisées pour trouver des pièces uniques, comme des miniatures persanes ou des bijoux traditionnels.</li><li>🍽️ <strong>Dîner d'adieu dans un restaurant traditionnel</strong>: Savourez un dernier repas ouzbek, peut-être avec un spectacle de musique et de danse, pour clôturer votre voyage en beauté.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour26.jpg" class="w-full h-64 object-cover" alt="Jour 26">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎶 Divertissement</p>
+                                <p class="text-gray-700">Certains restaurants proposent des spectacles de musique et de danse folkloriques, une belle façon de terminer le séjour.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗣️ Remerciements</p>
+                                <p class="text-gray-700">N'hésitez pas à remercier le personnel de votre hôtel ou les personnes qui vous ont aidé durant votre séjour.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-27" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 27</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Départ de Samarkand</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après 27 jours riches en découvertes et en émotions, il est temps de quitter Samarkand. Emportez avec vous les souvenirs des dômes turquoise, des bazars animés et de l'hospitalité ouzbèke. Le transfert vers l'aéroport marque la fin de cette aventure inoubliable sur la Route de la Soie. Un départ empreint de nostalgie et de gratitude.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛏️ <strong>Petit-déjeuner à l'hôtel</strong>: Profitez d'un dernier petit-déjeuner ouzbek avant de préparer votre départ.</li><li>✈️ <strong>Transfert à l'aéroport de Samarkand</strong>: Transfert organisé de votre hôtel à l'aéroport international de Samarkand (SKD) pour votre vol de retour.</li><li>🛫 <strong>Vol retour vers Paris</strong>: Embarquement pour votre vol de retour, la tête pleine de souvenirs de l'Ouzbékistan.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Samarkand-7x925p1wny30f52/main/jour27.jpg" class="w-full h-64 object-cover" alt="Jour 27">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🛂 Formalités</p>
+                                <p class="text-gray-700">Assurez-vous d'avoir tous vos documents de voyage (passeport, billets) à portée de main pour les formalités de départ.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">⏰ Heure</p>
+                                <p class="text-gray-700">Prévoyez suffisamment de temps pour le transfert et les contrôles de sécurité à l'aéroport.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+    </section>
+
+    <section id="pratique" class="bg-white border-t border-gray-200 pt-12 pb-12 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>💴</span> Budget
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget vol: </strong>750 € (Aller-retour incluant bagage)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget transports: </strong>350 €/pers (Trains intercités, taxis locaux, bus pour excursions)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget repas: </strong>810 €/pers (30 €/jour pour 27 jours, restaurants locaux et cafés)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget logement: </strong>1300 €/pers (50 €/nuit pour 26 nuits, hôtels 3 étoiles)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget activités: </strong>350 €/pers (Entrées des sites, musées, ateliers)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Les périodes idéales pour ce séjour sont les mois de mars à mai et de septembre à novembre, pour des températures plus douces.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Infos pratiques
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">❄️ En janvier-février, les températures à Samarkand varient entre -5°C et +5°C. Prévoyez des vêtements très chauds, un bonnet, des gants et des chaussures imperméables. La neige est possible.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🤝 La population ouzbèke est réputée pour son hospitalité chaleureuse. Un sourire et quelques mots de courtoisie (comme "Assalomu alaykum" pour bonjour) sont toujours appréciés.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">💳 La monnaie locale est le Som ouzbek (UZS). Les cartes de crédit sont acceptées dans les grands hôtels et restaurants, mais prévoyez du liquide pour les bazars et les petits commerces. Les distributeurs sont disponibles dans les grandes villes.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">✅ L'Ouzbékistan est un pays sûr. Cependant, comme dans toute destination touristique, restez vigilant face aux pickpockets dans les lieux très fréquentés et ne laissez pas vos objets de valeur sans surveillance.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>🔗</span> Liens Utiles
+                </h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://mytripplanner-dotfr.github.io/Samarkand-7x925p1wny30f52/map.html" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🗺️ Carte Interactive</strong></a></li>
+                    
+                        <li><a href="https://uzbek.travel/fr/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>📘 Tourisme Ouzbékistan</strong></a></li>
+                    
+                        <li><a href="https://e-ticket.railway.uz/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🚆 Chemins de fer Ouzbékistans</strong></a></li>
+                    
+                        <li><a href="https://www.accuweather.com/fr/uz/samarkand/320959/weather-forecast/320959" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🌤️ Météo Samarkand</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-serif text-lg text-template-roche mb-2 font-bold">
+                MyTrip<span class="text-template-ocre">Planner</span>
+            </p>
+
+                <div class="flex justify-center gap-4 text-[10px] md:text-xs text-slate-500 mb-4 font-semibold">
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">CGU</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Confidentialité</a>
+                </div>
+
+            <p class="text-[10px] text-gray-400 mb-2">
+                &copy; 2025 MyTripPlanner. Tous droits réservés.
+            </p>
+
+            <div class="flex justify-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest px-2 py-0.5 border border-gray-200 rounded-full inline-block">
+                    🤖 Contenu généré par IA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion Scroll & Menu
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+
+        // Active Link Highlighter
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('div[id^="jour-"], section#pratique').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
